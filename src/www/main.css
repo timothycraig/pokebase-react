@@ -10,3 +10,7 @@ body {
   font-size: 13px;
   line-height: 20px;
 }
+
+.search-bar {
+  margin-bottom: 20px;
+}

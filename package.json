@@ -2,12 +2,14 @@
   "name": "Pokebase",
   "version": "0.0.1",
   "dependencies": {
+    "axios": "^0.13.1",
     "material-ui": "^0.15.2",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
     "react-tap-event-plugin": "^1.0.0",
-    "redux": "^3.5.2"
+    "redux": "^3.5.2",
+    "redux-promise": "^0.5.3"
   },
   "devDependencies": {
     "babel-core": "^6.11.4",
