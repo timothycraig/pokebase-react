@@ -3,10 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchPokemon } from '../actions/index'
 
-import Divider from 'material-ui/Divider';
-import Paper from 'material-ui/Paper';
-import TextField from 'material-ui/TextField';
-
 export default class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -30,15 +26,23 @@ export default class SearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit}>
-        <TextField
-        className="search-bar"
-        hintText="Search Pokemon"
-        fullWidth={true}
-        floatingLabelText="Search Pokemon"
-        value={this.state.term}
-        onChange={this.onInputChange} />
-      </form>
+      <div className="mdl-grid">
+      <div className="mdl-cell mdl-cell--6-col">
+        <form action="submit" onSubmit={this.onFormSubmit}>
+          <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input
+              className="mdl-textfield__input"
+              pattern="[A-Z,a-z, ]*"
+              type="text"
+              id="pokesearch"
+              value={this.state.term}
+              onChange={this.onInputChange} />
+            <label className="mdl-textfield__label" for="pokesearch">Search Pokemon...</label>
+            <span className="mdl-textfield__error">Letters and spaces only</span>
+          </div>
+        </form>
+      </div>  
+      </div>
     );
   }
 }
