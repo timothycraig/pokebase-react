@@ -2,33 +2,36 @@ import React, { Component } from 'react';
 import SearchBar from '../containers/search_bar';
 import Pokemon from '../containers/pokemon';
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
-import {yellow400} from 'material-ui/styles/colors';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import AppBar from 'material-ui/AppBar';
-import TextField from 'material-ui/TextField';
-
-const muiTheme = getMuiTheme({
-  palette: {},
-  appBar: {
-    height: 100,
-    display: 'flex',
-    color: yellow400
-  },
-});
-
 export default class App extends Component {
   render() {
     return (
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <div>
-          <AppBar title="Pokebase" />
-          <SearchBar />
-          <Pokemon />
+      <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header className="mdl-layout__header">
+          <div className="mdl-layout__header-row">
+            <span className="mdl-layout-title">Pokebase</span>
+            <div className="mdl-layout-spacer"></div>
+            <nav className="mdl-navigation mdl-layout--large-screen-only">
+              <a className="mdl-navigation__link" href="">API</a>
+              <a className="mdl-navigation__link"
+              href="https://github.com/timothycraig/PokeBase">Github</a>
+            </nav>
+          </div>
+        </header>
+        <div className="mdl-layout__drawer">
+          <span className="mdl-layout-title">Pokebase</span>
+          <nav className="mdl-navigation">
+            <a className="mdl-navigation__link" href="">API</a>
+            <a className="mdl-navigation__link"
+            href="https://github.com/timothycraig/PokeBase">Github</a>
+          </nav>
         </div>
-      </MuiThemeProvider>
+        <main className="mdl-layout__content">
+          <div className="page-content">
+            <SearchBar />
+            <Pokemon />
+          </div>
+        </main>
+      </div>
     );
   }
 }
