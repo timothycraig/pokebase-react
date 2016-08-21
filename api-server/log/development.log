@@ -21112,3 +21112,14 @@ Processing by Api::V1::PokemonsController#index as HTML
 Completed 200 OK in 173ms (Views: 22.2ms | ActiveRecord: 22.7ms)
 
 
+DEPRECATION WARNING: The `cache_control` argument is deprecated,replaced by `headers: { 'Cache-Control' =>  }`,  and will be removed in Rails 5.1. (called from <top (required)> at /Users/ttcraig/React/pokebase-react/api-server/config/environment.rb:5)
+Started GET "/api/v1/pokemons?name=lapras" for ::1 at 2016-08-20 19:09:45 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::PokemonsController#index as HTML
+  Parameters: {"name"=>"lapras"}
+  [1m[36mPokemon Load (1.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE (name ILIKE '%lapras%')[0m
+  [1m[36mMove Load (1.1ms)[0m  [1m[34mSELECT "moves".* FROM "moves" INNER JOIN "move_pokemons" ON "moves"."id" = "move_pokemons"."move_id" WHERE "move_pokemons"."pokemon_id" = $1[0m  [["pokemon_id", 130]]
+  [1m[36mType Load (0.8ms)[0m  [1m[34mSELECT "types".* FROM "types" INNER JOIN "pokemon_types" ON "types"."id" = "pokemon_types"."type_id" WHERE "pokemon_types"."pokemon_id" = $1[0m  [["pokemon_id", 130]]
+Completed 200 OK in 156ms (Views: 19.1ms | ActiveRecord: 16.3ms)
+
+
