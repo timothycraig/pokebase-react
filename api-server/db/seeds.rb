@@ -10,6 +10,7 @@ def seed_all_the_things!
 end
 
 ######Types
+
 def scan_types(data)
   typesarray = data["TypeScalarArray"]
   data["PokemonTypes"].each do |type|
@@ -25,6 +26,7 @@ def scan_types(data)
 end
 
 #######Moves
+
 def scan_moves(data)
   typesarray = data["TypeScalarArray"]
   col_hash = {
@@ -125,5 +127,4 @@ def parse_pokemon_stats_info(hash)
 end
 
 ###########
-
 seed_all_the_things!
