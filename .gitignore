@@ -1,4 +1,8 @@
 /node_modules
 bundle.js
 npm-debug.log
-/api-server/log/development.log
+
+/api-server/log/*
+/api-server/tmp/*
+
+.DS_Store

@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchPokemon } from '../actions/index'
+import { fetchPokemon, fetchInitial } from '../actions/index'
 
 export default class SearchBar extends Component {
+  componentWillMount() {
+    this.props.fetchInitial();
+  }
+
   constructor(props) {
     super(props);
 
@@ -44,7 +48,7 @@ export default class SearchBar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchPokemon }, dispatch)
+  return bindActionCreators({ fetchPokemon, fetchInitial }, dispatch)
 }
 
 export default connect(null, mapDispatchToProps)(SearchBar)
