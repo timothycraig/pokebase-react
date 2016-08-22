@@ -26,23 +26,19 @@ export default class SearchBar extends Component {
 
   render() {
     return (
-      <div className="mdl-grid">
-        <div className="mdl-cell mdl-cell--6-col">
-          <form action="submit" onSubmit={this.onFormSubmit}>
-            <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input
-                className="mdl-textfield__input"
-                pattern="[A-Z,a-z, ]*"
-                type="text"
-                id="pokesearch"
-                value={this.state.term}
-                onChange={this.onInputChange} />
-              <label className="mdl-textfield__label" htmlFor="pokesearch">Search Pokemon...</label>
-              <span className="mdl-textfield__error">Letters and spaces only</span>
-            </div>
-          </form>
+      <form action="submit" onSubmit={this.onFormSubmit}>
+        <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input
+            className="mdl-textfield__input"
+            pattern="[A-Z,a-z, ]*"
+            type="text"
+            id="pokesearch"
+            value={this.state.term}
+            onChange={this.onInputChange} />
+          <label className="mdl-textfield__label" htmlFor="pokesearch">Search Pokemon...</label>
+          <span className="mdl-textfield__error">Letters and spaces only</span>
         </div>
-      </div>
+      </form>
     );
   }
 }

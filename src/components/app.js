@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from '../containers/search_bar';
 import Pokemon from '../containers/pokemon';
+import Footer from './footer';
 
 export default class App extends Component {
   render() {
@@ -13,7 +14,7 @@ export default class App extends Component {
             <nav className="mdl-navigation mdl-layout--large-screen-only">
               <a className="mdl-navigation__link" href="">API</a>
               <a className="mdl-navigation__link"
-              href="https://github.com/timothycraig/PokeBase">Github</a>
+              href="https://github.com/timothycraig/PokeBase" target="_blank">Github</a>
             </nav>
           </div>
         </header>
@@ -22,15 +23,23 @@ export default class App extends Component {
           <nav className="mdl-navigation">
             <a className="mdl-navigation__link" href="">API</a>
             <a className="mdl-navigation__link"
-            href="https://github.com/timothycraig/PokeBase">Github</a>
+            href="https://github.com/timothycraig/PokeBase" target="_blank">Github</a>
           </nav>
         </div>
         <main className="mdl-layout__content">
           <div className="page-content">
-            <SearchBar />
-            <Pokemon />
+            <div className="mdl-grid">
+              <div className="mdl-cell mdl-cell--6-col">
+                <SearchBar />
+                <Pokemon />
+              </div>
+              <div className="mdl-cell mdl-cell--6-col">
+                <div>Bar graph goes here</div>
+              </div>
+            </div>
           </div>
         </main>
+        <Footer />
       </div>
     );
   }

@@ -2,61 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Pokemon extends Component {
-  renderPokemon(pokemonData) {
-    const name = pokemonData.pokemons[0].name
-
-    return name
-  }
-
-  renderPokemonType(pokemonData) {
-    const type = pokemonData.pokemons[0].types[0].name
-
-    return type
-  }
-
-  renderTypeLetter(pokemonData) {
-    const first_letter = pokemonData.pokemons[0].types[0].name.charAt(0)
-
-    return first_letter
-  }
-
-  renderTypeColor(pokemonData) {
-    const type = pokemonData.pokemons[0].types[0].name
-    let type_class = ""
-
-    if (type === "Electric") {
-      type_class = "mdl-chip__contact mdl-color--yellow mdl-color-text--white"
-    } else if (type === "Water") {
-      type_class = "mdl-chip__contact mdl-color--blue mdl-color-text--white"
-    } else if (type === "Grass" || type === "Bug") {
-      type_class = "mdl-chip__contact mdl-color--green mdl-color-text--white"
-    } else if (type === "Fire") {
-      type_class = "mdl-chip__contact mdl-color--red mdl-color-text--white"
-    } else if (type === "Rock" || type === "Ground") {
-      type_class = "mdl-chip__contact mdl-color--brown mdl-color-text--white"
-    } else if (type === "Psychic") {
-      type_class = "mdl-chip__contact mdl-color--deep_purple mdl-color-text--white"
-    } else type_class = "mdl-chip__contact mdl-color--grey mdl-color-text--white"
-
-    return type_class
-  }
-
-  renderPokemonImg(pokemonData) {
-    const pokemon_id = pokemonData.pokemons[0].poke_id
-    const img_url = "http://pokebase.herokuapp.com/images/full"
-    const pokemon_image = `${img_url}/${pokemon_id}.png`
-
-    return (
-      <div><img src={pokemon_image} /></div>
-    );
-  }
 
   renderPokemonIcon(pokemonData) {
     const url = pokemonData.pokemons[0].image
-    const img_url = `http://pokebase.herokuapp.com/${url}`
+    const img_url = `http://localhost:3000/${url}`
+    const name = pokemonData.pokemons[0].name
 
     return (
-      <div><img src={img_url} /></div>
+      <span className="mdl-chip mdl-chip--contact">
+        <span className="mdl-chip__contact">
+          <img width="75%" src={img_url} />
+        </span>
+        <span className="mdl-chip__text">
+          <h6>{name}</h6>
+        </span>
+      </span>
     );
   }
 
@@ -88,33 +48,114 @@ class Pokemon extends Component {
     );
   }
 
+  // This method needs to be refactored.
+  renderPokemonType(pokemonData) {
+    const type = pokemonData.pokemons[0].types
+    let type_one = ""
+    let type_two = ""
+    let type_class = "mdl-chip__contact mdl-color-text--white mdl-color--"
+    let type_class_one
+    let type_class_two
+
+    if (type.length === 1) {
+      type_one = type[0].name
+    } else {
+      type_one = type[0].name
+      type_two = type[1].name
+    }
+
+    if (type_one === "Electric") {
+      type_class_one = `${type_class}yellow`
+    } else if (type_one === "Water") {
+      type_class_one = `${type_class}blue`
+    } else if (type_one === "Grass" || type_one === "Bug" || type_one === "Poison") {
+      type_class_one = `${type_class}green`
+    } else if (type_one === "Fire") {
+      type_class_one = `${type_class}red`
+    } else if (type_one === "Rock" || type === "Ground") {
+      type_class_one = `${type_class}brown`
+    } else if (type_one === "Psychic") {
+      type_class_one = `${type_class}purple`
+    } else type_class_one = `${type_class}grey`
+
+    if (type_two === "Electric") {
+      type_class_two = `${type_class}yellow`
+    } else if (type_two === "Water") {
+      type_class_two = `${type_class}blue`
+    } else if (type_two === "Grass" || type_two === "Bug" || type_two === "Poison") {
+      type_class_two = `${type_class}green`
+    } else if (type_two === "Fire") {
+      type_class_two = `${type_class}red`
+    } else if (type_two === "Rock" || type === "Ground") {
+      type_class_two = `${type_class}brown`
+    } else if (type_two === "Psychic") {
+      type_class_two = `${type_class}purple`
+    } else type_class_two = `${type_class}grey`
+
+    if (type.length === 1) {
+      return (
+        <span className="mdl-chip mdl-chip--contact">
+          <span className={type_class_one}>
+            {type_one.charAt(0)}
+          </span>
+          <span className="mdl-chip__text"><h6>{type_one}</h6></span>
+        </span>
+      );
+    } else {
+      return (
+        <div>
+          <span className="mdl-chip mdl-chip--contact">
+            <span className={type_class_one}>
+              {type_one.charAt(0)}
+            </span>
+            <span className="mdl-chip__text"><h6>{type_one}</h6></span>
+          </span>&nbsp;
+          <span className="mdl-chip mdl-chip--contact">
+            <span className={type_class_two}>
+              {type_two.charAt(0)}
+            </span>
+            <span className="mdl-chip__text"><h6>{type_two}</h6></span>
+          </span>
+        </div>
+      );
+    }
+  }
+
+  renderPokemonImg(pokemonData) {
+    const pokemon_id = pokemonData.pokemons[0].poke_id
+    const img_url = "http://localhost:3000/images/full"
+    const pokemon_image = `${img_url}/${pokemon_id}.png`
+    const name = pokemonData.pokemons[0].name
+
+    return (
+      <div className="card-wide mdl-card mdl-shadow--4dp">
+        <div className="mdl-card__title">
+          <h4 className="mdl-card__title-text">{name}</h4>
+        </div>
+        <div className="mdl-card__supporting-text">
+          <img width="60%" src={pokemon_image} />
+        </div>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div>
-      <div className="mdl-grid">
-        <div className="mdl-cell mdl-cell--3-col">
-          <span className="mdl-chip mdl-chip--contact">
-            <span className="mdl-chip__contact">{this.props.pokemon.map(this.renderPokemonIcon)}</span>
-            <span className="mdl-chip__text"><h6>{this.props.pokemon.map(this.renderPokemon)}</h6></span>
-          </span>&nbsp;
-          <span className="mdl-chip mdl-chip--contact">
-            <span className={this.props.pokemon.map(this.renderTypeColor)}>{this.props.pokemon.map(this.renderTypeLetter)}</span>
-            <span className="mdl-chip__text"><h6>{this.props.pokemon.map(this.renderPokemonType)}</h6></span>
-          </span>
-        </div>
-        <div className="mdl-cell mdl-cell--3-col">
-          {this.props.pokemon.map(this.renderPokemonStats)}
-        </div>
-      </div>
-      <div className="mdl-grid">
-        <div className="mdl-cell mdl-cell--6-col">
-          <div className="card-wide mdl-card mdl-shadow--4dp">
-            <div className="mdl-card__supporting-text">
-              {this.props.pokemon.map(this.renderPokemonImg)}
-            </div>
+        <div className="mdl-grid">
+          <div className="mdl-cell mdl-cell--6-col">
+            {this.props.pokemon.map(this.renderPokemonImg)}
           </div>
         </div>
-      </div>
+        <div className="mdl-grid">
+          <div className="mdl-cell mdl-cell--3-col">
+            {this.props.pokemon.map(this.renderPokemonIcon)}&nbsp;
+            {this.props.pokemon.map(this.renderPokemonType)}
+          </div>
+          <div className="mdl-cell mdl-cell--3-col">
+            {this.props.pokemon.map(this.renderPokemonStats)}
+          </div>
+        </div>
       </div>
     );
   }
