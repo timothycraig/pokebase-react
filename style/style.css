@@ -16,5 +16,11 @@ body {
 }
 
 .card-wide.mdl-card {
-  width: 100%;
+  width: 505px;
+  height: 350px;
+}
+
+.card-wide.mdl-card > .mdl-card__title {
+  color: #fff;
+  background-color: #323840;
 }
