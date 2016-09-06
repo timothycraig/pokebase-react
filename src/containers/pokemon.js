@@ -33,7 +33,7 @@ class Pokemon extends Component {
             <th>Poke ID</th>
             <th>Stamina</th>
             <th>Attack</th>
-            <th>Defence</th>
+            <th>Defense</th>
           </tr>
         </thead>
         <tbody>

@@ -25,6 +25,11 @@ body {
   background-color: #323840;
 }
 
-td {
-    font-weight: bold;
+a.mdl-navigation__link:hover {
+  color: #fff;
+}
+
+.mdl-layout__drawer span.mdl-layout-title {
+  background: #424242;
+  color: rgb(255,193,7);
 }
