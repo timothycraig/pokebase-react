@@ -21,3 +21,11 @@ $ npm install
 $ npm start
 $ open http://localhost:8080/
 ```
+
+##### I used:
+- rails 5 (api-server)
+- react
+- redux
+- axios
+- react-google-charts
+- material design lite
