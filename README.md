@@ -1,4 +1,8 @@
-# Pokebase React Front End
+# Pokebase React
+
+### Search for your favorite pokemon and look up their stats
+
+![Screenshot](http://imgur.com/a/8JWeh)
 
 ##### Boot up the API server
 ```
