@@ -48,7 +48,6 @@ class Pokemon extends Component {
     );
   }
 
-  // This method needs to be refactored.
   renderPokemonType(pokemonData) {
     const type = pokemonData.pokemons[0].types
     let type_one = ""
@@ -64,33 +63,20 @@ class Pokemon extends Component {
       type_two = type[1].name
     }
 
-    if (type_one === "Electric") {
-      type_class_one = `${type_class}yellow`
-    } else if (type_one === "Water") {
-      type_class_one = `${type_class}blue`
-    } else if (type_one === "Grass" || type_one === "Bug" || type_one === "Poison") {
-      type_class_one = `${type_class}green`
-    } else if (type_one === "Fire") {
-      type_class_one = `${type_class}red`
-    } else if (type_one === "Rock" || type === "Ground") {
-      type_class_one = `${type_class}brown`
-    } else if (type_one === "Psychic") {
-      type_class_one = `${type_class}purple`
-    } else type_class_one = `${type_class}grey`
+    const indexedCollection = {
+      'Electric': `${type_class}yellow`,
+      'Water': `${type_class}blue`,
+      'Grass': `${type_class}green`,
+      'Bug': `${type_class}green`,
+      'Poison': `${type_class}green`,
+      'Fire': `${type_class}red`,
+      'Rock': `${type_class}brown`,
+      'Ground': `${type_class}brown`,
+      'Psychic': `${type_class}purple`
+    }
 
-    if (type_two === "Electric") {
-      type_class_two = `${type_class}yellow`
-    } else if (type_two === "Water") {
-      type_class_two = `${type_class}blue`
-    } else if (type_two === "Grass" || type_two === "Bug" || type_two === "Poison") {
-      type_class_two = `${type_class}green`
-    } else if (type_two === "Fire") {
-      type_class_two = `${type_class}red`
-    } else if (type_two === "Rock" || type === "Ground") {
-      type_class_two = `${type_class}brown`
-    } else if (type_two === "Psychic") {
-      type_class_two = `${type_class}purple`
-    } else type_class_two = `${type_class}grey`
+    type_class_one = indexedCollection[type_one] || `${type_class}grey`
+    type_class_two = indexedCollection[type_two] || `${type_class}grey`
 
     if (type.length === 1) {
       return (

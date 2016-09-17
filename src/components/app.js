@@ -5,7 +5,7 @@ import Drawer from './drawer';
 
 export default class App extends Component {
   render() {
-    const { search, main } = this.props
+    const { search, pokemon, chart } = this.props
     return (
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <Header />
@@ -13,9 +13,14 @@ export default class App extends Component {
         <main className="mdl-layout__content">
           <div className="page-content">
             <div className="mdl-grid">
-              <div className="mdl-cell mdl-cell--6-col">
+              <div className="mdl-cell mdl-cell--12-col">
                 <div>{search}</div>
-                <div>{main}</div>
+              </div>
+              <div className="mdl-cell mdl-cell--6-col">
+                <div>{pokemon}</div>
+              </div>
+              <div className="mdl-cell mdl-cell--6-col">
+                <div>{chart}</div>
               </div>
               <div className="mdl-cell mdl-cell--12-col">
                 {this.props.children}
