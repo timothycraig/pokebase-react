@@ -6,8 +6,8 @@ const ApiDocs = () => {
       <div className="mdl-grid">
         <div className="mdl-cell mdl-cell--12-col">
           <h3>PokéBase API Overview</h3><br />
-          <p>Query Pokemon or Moves to retreive data obtained from pokemon GO's game
-          data that has been released online.</p>
+          <h6>Query Pokemon or Moves to retreive data obtained from pokemon GO's game
+          data that has been released online.</h6>
           <p>Credit to <a href="https://github.com/code-matt">Matt Thompson</a> for
           the api development, <a href="https://github.com/bmordas11">Brett Mordas</a> for
           scraping the data, and <a href="https://github.com/Xander4321">Paul Cornett</a> for
@@ -31,22 +31,22 @@ const ApiDocs = () => {
             </thead>
             <tbody>
               <tr>
-                <td className="mdl-data-table__cell--non-numeric">name</td>
+                <td className="mdl-data-table__cell--non-numeric"><strong>name</strong></td>
                 <td className="mdl-data-table__cell--non-numeric">String</td>
                 <td className="mdl-data-table__cell--non-numeric">Queries by the pokemon or moves's name</td>
               </tr>
               <tr>
-                <td className="mdl-data-table__cell--non-numeric">attack</td>
+                <td className="mdl-data-table__cell--non-numeric"><strong>attack</strong></td>
                 <td className="mdl-data-table__cell--non-numeric">Int</td>
                 <td className="mdl-data-table__cell--non-numeric">Queries pokemon who's base attack is greater than the supplied value</td>
               </tr>
               <tr>
-                <td className="mdl-data-table__cell--non-numeric">defence</td>
+                <td className="mdl-data-table__cell--non-numeric"><strong>defence</strong></td>
                 <td className="mdl-data-table__cell--non-numeric">Int</td>
                 <td className="mdl-data-table__cell--non-numeric">Queries pokemon who's base defence is greater than the supplied value</td>
               </tr>
               <tr>
-                <td className="mdl-data-table__cell--non-numeric">stamina</td>
+                <td className="mdl-data-table__cell--non-numeric"><strong>stamina</strong></td>
                 <td className="mdl-data-table__cell--non-numeric">Int</td>
                 <td className="mdl-data-table__cell--non-numeric">Queries pokemon who's base stamina is greater than the supplied value</td>
               </tr>
@@ -66,12 +66,12 @@ const ApiDocs = () => {
             </thead>
             <tbody>
               <tr>
-                <td className="mdl-data-table__cell--non-numeric">name</td>
+                <td className="mdl-data-table__cell--non-numeric"><strong>name</strong></td>
                 <td className="mdl-data-table__cell--non-numeric">String</td>
                 <td className="mdl-data-table__cell--non-numeric">Queries by the pokemon or moves's name</td>
               </tr>
               <tr>
-                <td className="mdl-data-table__cell--non-numeric">power</td>
+                <td className="mdl-data-table__cell--non-numeric"><strong>power</strong></td>
                 <td className="mdl-data-table__cell--non-numeric">Int</td>
                 <td className="mdl-data-table__cell--non-numeric">Queries attacks with base power greater than the supplied value</td>
               </tr>

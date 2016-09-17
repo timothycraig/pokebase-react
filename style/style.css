@@ -9,6 +9,11 @@ html {
 body {
   font-size: 13px;
   line-height: 20px;
+  background-color: #f5f5f5
+}
+
+a.mdl-navigation__link:hover {
+  color: #fff;
 }
 
 .search-bar {
@@ -25,8 +30,14 @@ body {
   background-color: #323840;
 }
 
-a.mdl-navigation__link:hover {
+.card-graph.mdl-card {
+  width: 600px;
+  height: auto;
+}
+
+.card-graph.mdl-card > .mdl-card__title {
   color: #fff;
+  background-color: #323840;
 }
 
 .mdl-layout__drawer span.mdl-layout-title {
