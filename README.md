@@ -2,7 +2,7 @@
 
 ### Search for your favorite pokemon and look up their stats
 
-![Screenshot](http://imgur.com/a/8JWeh)
+![Screenshot](pokebase.png)
 
 ##### Boot up the API server
 ```
