@@ -4,5 +4,6 @@ npm-debug.log
 
 /api-server/log/*
 /api-server/tmp/*
+/tmp
 
 .DS_Store
